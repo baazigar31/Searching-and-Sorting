@@ -1,4 +1,4 @@
 1 2 2 4 4 6 7 8 9 
 
 
-Executed In: 0.531 ms
+Executed In: 0.52 ms
