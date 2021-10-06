@@ -54,20 +54,22 @@ void file_i_o()
 	#endif
 }
 
-vector<int> arr{1,4,2,6,8,4,2,7,9};
+vector<int> arr{1,4,2,6,8,4,2,7,9,11,2,33,4,4,5,5};
 int n=arr.size();
 int mx=*max_element(all(arr))+1;
 
-int partition(int si,int en){
+pair<int,int> partition(int si,int en){
+	// int len=en-si+1;
+	
 	int pivot=arr[en]%mx;
 	int l=si,r=en;
 	for(int i=si;i<=en;i++){
 		if((arr[i]%mx)<pivot){
-			arr[l]=arr[l]+arr[i]*mx;
+			arr[l]=arr[l]+((arr[i]%mx)*mx);
 			l++;
 		}else{
 			if((arr[i]%mx)>pivot){
-				arr[r]=arr[r]+arr[i]*mx;
+				arr[r]=arr[r]+((arr[i]%mx)*mx);
 				r--;
 			}
 		}
@@ -80,7 +82,9 @@ int partition(int si,int en){
 			arr[k]=pivot;
 		}
 	}
-	return r;
+	// cout<<r<<endl;
+
+	return {l,r};
 
 }
 
@@ -88,9 +92,9 @@ void quickSort(int si,int en){
 	if(si>=en){
 		return ;
 	}
-	int pivot=partition(si,en);
-	quickSort(si,pivot-1);
-	quickSort(pivot+1,en);
+	auto pivot=partition(si,en);
+	quickSort(si,pivot.ff-1);
+	quickSort(pivot.ss+1,en);
 }
 
 int main(int argc, char const *argv[]) {
@@ -98,11 +102,16 @@ int main(int argc, char const *argv[]) {
 	file_i_o();
 	// Write your code here....
 
+
 	
 
 	quickSort(0,n-1);
 
 	logarr(arr,0,n-1);
+
+	vector<int> brr{1,4,2,6,8,4,2,7,9,11,2,33,4,4,5,5};
+	sort(all(brr));
+	logarr(brr,0,n-1);
 
 
 
