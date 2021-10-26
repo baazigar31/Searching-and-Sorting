@@ -1,12 +1,6 @@
-Printing the 0th bucket:
-Printing the 1th bucket:0.18 0.23 0.22 
-Printing the 2th bucket:
-Printing the 3th bucket:0.52 0.48 
-Printing the 4th bucket:0.59 0.65 
-Printing the 5th bucket:
-Printing the 6th bucket:
-Printing the 7th bucket:
-0.18 0.22 0.23 0.48 0.52 0.59 0.65 
+YES
+NO
+NO
 
 
-Executed In: 0.439 ms
+Executed In: 74.405 ms
