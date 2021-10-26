@@ -1,5 +1,12 @@
-10000006 10000000 10000020 10000001 -1000008 10000009 10000003 
--1000008 10000000 10000001 10000003 10000006 10000009 10000020 
+Printing the 0th bucket:
+Printing the 1th bucket:0.18 0.23 0.22 
+Printing the 2th bucket:
+Printing the 3th bucket:0.52 0.48 
+Printing the 4th bucket:0.59 0.65 
+Printing the 5th bucket:
+Printing the 6th bucket:
+Printing the 7th bucket:
+0.18 0.22 0.23 0.48 0.52 0.59 0.65 
 
 
-Executed In: 0.219 ms
+Executed In: 0.439 ms
