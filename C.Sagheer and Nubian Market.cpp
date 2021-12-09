@@ -53,66 +53,59 @@ void file_i_o()
 	    freopen("output.txt", "w", stdout);
 	#endif
 }
-    ll n,s;
-    vector<ll> arr;
-    ll costAns=LLONG_MAX;
+	ll n,s;
+vector<ll> v;
+vector<ll> arr;
+ll costAns=0;
 
 bool check(ll x){
-	vector<ll> v=arr;
 	ll cost=0;
-	for(int i=1;i<=n;i++){
-		v[i]=v[i]+x*i;
+	v=arr;
+	for(int i=0;i<n;i++){
+		v[i]=v[i]+x*(i+1);
 	}
 	sort(all(v));
-	for(int i=1;i<=x;i++){
+	for(int i=0;i<x;i++){
 		cost+=v[i];
 	}
-	 if(cost<=s){
-	 	costAns=min(costAns,cost);
-	 	return true;
-	 }else{
-	 	return false;
-	 }
+	return cost<=s;
 }
-
-
 
 int main(int argc, char const *argv[]) {
 	clock_t begin = clock();
 	file_i_o();
-    
-    cin>>n>>s;
-    arr.resize(n+1);
-    // vector<ll> v(n+1);
-    loop(i,1,n){
-    	ll k;
-    	cin>>k;
-    	arr[i]=k;
-    	// v[i]=k;
-    } 
 
-    // sort(all(arr));
+	cin>>n>>s;
+	arr.resize(n);
+	loop(i,0,n-1){
+		cin>>arr[i];
+	}
     ll low=0;
-    ll ans=0;
     ll high=n;
-    ll ctr=0;
+    ll ans=0;
     while(low<=high){
     	ll mid=low+(high-low)/2;
     	if(check(mid)){
     		ans=mid;
     		low=mid+1;
-    	}else{
+    	}
+    	else{
     		high=mid-1;
     	}
     }
-    // for(int i=1;i<=n;i++){
-    // 	v[i]=v[i]+i*ans;
-    // }
-    // sort(all(v));
-    // for(int i=1;i<=ans;i++){
-    // 	ctr+=v[i];
-    // }
+
+    for(int i=0;i<n;i++){
+    	arr[i]=arr[i]+ans*(i+1);
+    }
+    sort(all(arr));
+    for(int i=0;i<ans;i++){
+    	costAns+=arr[i];
+    }
     cout<<ans<<" "<<costAns<<endl;
+
+
+    
+   
 
 
 
